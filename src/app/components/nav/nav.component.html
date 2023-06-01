@@ -1,1 +1,40 @@
-<p>nav works!</p>
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+       <img src="assets/img/side-image.svg" alt="Imagem de navegação">
+       <mat-nav-list class="nav-list">
+         <a mat-list-item routerLink="home">
+            <span class="icon"><i class="material-icons">home</i></span>
+            <span class="text">Home</span>
+         </a>
+         <a mat-list-item routerLink="tecnicos">
+            <span class="icon"><i class="material-icons">account_circle</i></span>
+            <span class="text">Técnicos</span>
+         </a>
+         <a mat-list-item routerLink="clientes">
+            <span class="icon"><i class="material-icons">person</i></span>
+            <span class="text">Clientes</span>
+         </a>
+         <a mat-list-item routerLink="chamados">
+            <span class="icon"><i class="material-icons">support</i></span>
+            <span class="text">Chamados</span>
+         </a>
+         <a mat-list-item href="https://github.com/ValdirCezar/helpdesk-front" target="_blank">
+            <span class="icon"><i class="material-icons">code</i></span>
+            <span class="text">Github</span>
+         </a>
+         <a mat-list-item routerLink="home">
+            <span class="icon"><i class="material-icons">logout</i></span>
+            <span class="text">Logout</span>
+         </a>
+       </mat-nav-list>
+    </mat-drawer>
+ 
+    <div class="sidenav-content">
+       
+       <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+       </button>
+       <router-outlet></router-outlet>
+    </div>
+ 
+ </mat-drawer-container>
