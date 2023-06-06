@@ -37,7 +37,7 @@ export class TecnicoCreateComponent implements OnInit{
   }
 
 
-    createDois(){
+    create(){
       this.service.create(this.tecnico)
         .subscribe({
           next: (data) => {
