@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Tecnico } from "src/app/models/tecnico";
 import { TecnicoService } from "src/app/services/tecnico.service";
@@ -34,7 +34,8 @@ export class TecnicoUpdateComponent {
   constructor(
     private service: TecnicoService,
     private toast: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class TecnicoUpdateComponent {
 
   findById(): void {
     this.service.findById(this.tecnico.id).subscribe(reposta => {
+      reposta.perfis = [];
       this.tecnico = reposta;
     })
   }
@@ -52,6 +54,7 @@ export class TecnicoUpdateComponent {
     this.service.update(this.tecnico).subscribe({
       next: (data) => {
         this.toast.success("Técnico Atualizado com sucesso", "Update");
+        this.router.navigate(['tecnicos']);
       },
       error: (ex) => {
         if (ex.error.errors) {
