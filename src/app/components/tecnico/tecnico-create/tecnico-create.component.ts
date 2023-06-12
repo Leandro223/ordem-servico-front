@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -29,7 +30,7 @@ export class TecnicoCreateComponent implements OnInit{
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
 
-  constructor(private service: TecnicoService,  private toast: ToastrService){}
+  constructor(private service: TecnicoService,  private toast: ToastrService, private router: Router){}
 
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class TecnicoCreateComponent implements OnInit{
         .subscribe({
           next: (data) => {
             this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
+            this.router.navigate(['tecnicos']);
           },
           error: (ex) => {
             if(ex.error.errors){

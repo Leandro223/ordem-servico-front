@@ -34,7 +34,7 @@
           
           <ng-container matColumnDef="symbol">
             <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
           </ng-container>
 
           <ng-container matColumnDef="acoes">
@@ -44,7 +44,7 @@
                 <i class="material-icons edit">edit</i>
               </a>
 
-              <a routerLink="">
+              <a routerLink="delete/{{ element.id }}">
                 <i class="material-icons delete">delete</i>
               </a>
 
