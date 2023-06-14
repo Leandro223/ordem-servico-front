@@ -10,11 +10,11 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
-  selector: 'app-chamado-create',
-  templateUrl: './chamado-create.component.html',
-  styleUrls: ['./chamado-create.component.css']
+  selector: 'app-chamado-update',
+  templateUrl: './chamado-update.component.html',
+  styleUrls: ['./chamado-update.component.css']
 })
-export class ChamadoCreateComponent implements OnInit {
+export class ChamadoUpdateComponent {
 
   chamado: Chamado = {
     prioridade: '',
