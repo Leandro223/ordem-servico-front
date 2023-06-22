@@ -34,3 +34,27 @@ img {
 button {
     margin-top: .5rem;
 }
+h2 {
+    
+    margin-left: 1.5rem;
+    color: dimgray;
+    opacity: 50%;
+}
+
+.registros-update {
+    margin-bottom: 20px;
+  }
+  
+  .registro-item {
+    margin-bottom: 10px;
+  }
+  
+  .registro-header {
+    color: dimgray;
+    opacity: 50%;
+  }
+  
+  .data-atualizacao,
+  .responsavel {
+    margin: 5px 0;
+  }
