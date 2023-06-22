@@ -31,3 +31,15 @@ h1 {
 .delete {
     color: red;
 }
+
+.editUser {
+    color: blue;
+    opacity: 0.5;
+
+}
+
+.deleteUser {
+    color: red;
+    opacity: 0.5;
+}
+

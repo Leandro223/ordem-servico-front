@@ -29,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { ConfirmarDialog, TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
@@ -44,6 +44,15 @@ import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-read.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DataPipe } from './shared/pipes/data.pipe';
+import { ChamadoDeleteComponent } from './components/chamado/chamado-delete/chamado-delete.component';
+import { MascaraDirective } from './shared/directives/mascara.directive';
+
+
+
+
+
 
 
 
@@ -66,6 +75,10 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
     ChamadoCreateComponent,
     ChamadoUpdateComponent,
     ChamadoReadComponent,
+    ConfirmarDialog,
+    DataPipe,
+    ChamadoDeleteComponent,
+    MascaraDirective
     
   ],
   imports: [
@@ -92,15 +105,27 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
     MatIconModule,
     MatListModule,
     MatCardModule,
+    
+    
+    
+    
+    
+    MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,
       progressBar: true
     }),
     
+
+    
+    
     
   ],
+  
+
   providers: [AuthInterceptorProvider],
+  entryComponents: [ConfirmarDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
