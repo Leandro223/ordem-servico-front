@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Chamado } from 'src/app/models/chamado';
 import { Cliente } from 'src/app/models/cliente';
 import { Tecnico } from 'src/app/models/tecnico';
+import { AuthService } from 'src/app/services/auth.service';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -60,14 +61,6 @@ export class ChamadoUpdateComponent {
     })
   }
 
-  update(): void {
-    this.chamadoService.update(this.chamado).subscribe(resposta => {
-      this.toastService.success('Chamado Atualizado com sucesso', 'Atualizar chamado');
-      this.router.navigate(['chamados']);
-    }, ex => {
-      this.toastService.error(ex.error.error);
-    });
-  }
 
   findAllClientes(): void{
     this.clienteService.findAll().subscribe(res => {
@@ -106,6 +99,15 @@ export class ChamadoUpdateComponent {
     }else {
       return 'ALTA'
     }
+  }
+
+  update(): void {
+    this.chamadoService.update(this.chamado).subscribe(resposta => {
+      this.toastService.success('Chamado atualizado com sucesso', 'Atualizar chamado');
+      this.router.navigate(['chamados']);
+    }, ex => {
+      this.toastService.error(ex.error.error);
+    })
   }
 
 }

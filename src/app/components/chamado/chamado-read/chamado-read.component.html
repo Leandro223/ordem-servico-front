@@ -41,11 +41,13 @@
     <div class="cliente">
       <mat-form-field class="full-width" appearance="outline">
           <mat-label>CLIENTE({{ chamado.nomeCliente }})</mat-label>
-          <mat-select [disabled]="true" [(ngModel)]="chamado.cliente" name="cliente" required>
+          <mat-select [disabled]="true" [(ngModel)]="chamado.cliente" name="cliente">
             <mat-option>{{ chamado.nomeCliente }}</mat-option>
           </mat-select>
         </mat-form-field>
     </div>
+
+
   
   
     <form class="example-form">
@@ -54,7 +56,25 @@
         <mat-label>Deixe uma observação</mat-label>
         <textarea [disabled]="true" [(ngModel)]="chamado.observacoes" name="observacoes" required class="descricao" matInput></textarea>
       </mat-form-field>
+      
     </form>
+
+    <div *ngIf="registrosUpdate && registrosUpdate.length > 0" class="registros-update">
+      <h2>Registros de Atualização</h2>
+      <ul>
+        <li *ngFor="let registro of registrosUpdate" class="registro-item">
+          <div class="registro-header">
+            <p class="data-atualizacao">Data de Atualização: {{ registro.dataAtualizacao | data }}</p>
+            <p class="responsavel">Responsável: {{ registro.responsavel }}</p>
+            <p>ID do Chamado: {{ registro.chamadoId }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    
+
+    
   
     
     <button routerLink="../../" class="full-width" mat-stroked-button color="warn">Retornar</button>

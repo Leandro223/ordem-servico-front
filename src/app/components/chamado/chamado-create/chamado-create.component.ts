@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Chamado } from 'src/app/models/chamado';
 import { Cliente } from 'src/app/models/cliente';
 import { Tecnico } from 'src/app/models/tecnico';
+import { AuthService } from 'src/app/services/auth.service';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -76,5 +77,7 @@ export class ChamadoCreateComponent implements OnInit {
            this.tecnico.valid && this.cliente.valid 
 
   }
+
+  
 
 }
