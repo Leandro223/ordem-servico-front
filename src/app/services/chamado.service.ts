@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { Chamado } from '../models/chamado';
 import { API_CONFIG } from '../config/api.config';
+import { History } from '../models/history';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,14 @@ export class ChamadoService {
   findById(id: any): Observable<Chamado> {
     return this.http.get<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`);
   }
+
+  findRegistrosUpdateById(id: any): Observable<History[]> {
+    return this.http.get<History[]>(`${API_CONFIG.baseUrl}/chamados/${id}/registro`);
+  }
+
+
+  deletar(id: any): Observable<Chamado> {
+    return this.http.delete<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`);
+  }
+
 }

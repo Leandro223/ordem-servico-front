@@ -3,6 +3,8 @@ import { ActivatedRoute} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Chamado } from 'src/app/models/chamado';
 import { ChamadoService } from 'src/app/services/chamado.service';
+import { History } from 'src/app/models/history';
+import { KeyValuePipe } from '@angular/common';
 
 
 @Component({
@@ -11,6 +13,7 @@ import { ChamadoService } from 'src/app/services/chamado.service';
   styleUrls: ['./chamado-read.component.css']
 })
 export class ChamadoReadComponent {
+  registrosUpdate: History[];
   chamado: Chamado = {
     prioridade: '',
     status: '',
@@ -29,12 +32,22 @@ export class ChamadoReadComponent {
   ngOnInit(){
     this.chamado.id = this.route.snapshot.paramMap.get('id');
     this.findById();
+    this.findByIdUpdate();
     
   }
 
   findById() : void {
     this.chamadoService.findById(this.chamado.id).subscribe(resposta => {
       this.chamado = resposta;
+    }, ex => {
+      this.toastService.error(ex.error.error);
+    })
+  }
+
+  findByIdUpdate() : void {
+    this.chamadoService.findRegistrosUpdateById(this.chamado.id).subscribe(registros => {
+      this.registrosUpdate = registros;
+      
     }, ex => {
       this.toastService.error(ex.error.error);
     })
