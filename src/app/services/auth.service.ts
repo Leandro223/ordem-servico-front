@@ -24,6 +24,7 @@ export class AuthService {
     localStorage.setItem('token', authToken);
   }
 
+
   isAuthenticated(){
     let token = localStorage.getItem('token');
     if(token != null){
@@ -34,4 +35,23 @@ export class AuthService {
   logout(){
     localStorage.clear();
   }
+
+  getUserName(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.jwtService.decodeToken(token);
+      return decodedToken.sub; 
+    }
+    return '';
+  }
+
+  getUserRole(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.jwtService.decodeToken(token);
+      return decodedToken.role; // Retorna o perfil do usuário
+    }
+    return '';
+  }
+
 }

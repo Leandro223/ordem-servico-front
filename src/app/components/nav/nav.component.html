@@ -2,6 +2,11 @@
     <mat-drawer #drawer class="sidenav" mode="side">
        <img src="assets/img/side-image.svg" alt="Imagem de navegação">
        <mat-nav-list class="nav-list">
+
+         <a mat-list-item>
+            <span class="icon"><i class="material-icons">account_circle</i></span>
+            <span class="text">{{ userName }}</span>
+          </a>
          <a mat-list-item routerLink="home">
             <span class="icon"><i class="material-icons">home</i></span>
             <span class="text">Home</span>
@@ -10,7 +15,7 @@
             <span class="icon"><i class="material-icons">account_circle</i></span>
             <span class="text">Técnicos</span>
          </a>
-         <a mat-list-item routerLink="clientes">
+         <a mat-list-item routerLink="clientes" *ngIf="isAdmin()">
             <span class="icon"><i class="material-icons">person</i></span>
             <span class="text">Clientes</span>
          </a>
