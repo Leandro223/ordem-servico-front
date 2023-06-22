@@ -16,6 +16,8 @@ import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-read.component';
+import { ChamadoDeleteComponent } from './components/chamado/chamado-delete/chamado-delete.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -80,6 +82,10 @@ const routes: Routes = [
       {
         path: 'chamados/read/:id',
         component: ChamadoReadComponent
+      },
+      {
+        path: 'chamados/delete/:id',
+        component: ChamadoDeleteComponent
       }
     ]
   }
