@@ -23,6 +23,7 @@
     "@types/moment": "^2.13.0",
     "angular-input-masks": "^4.4.1",
     "momment": "^0.0.1",
+    "ngx-mask": "^15.1.5",
     "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

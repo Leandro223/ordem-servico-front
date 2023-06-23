@@ -48,6 +48,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DataPipe } from './shared/pipes/data.pipe';
 import { ChamadoDeleteComponent } from './components/chamado/chamado-delete/chamado-delete.component';
 import { MascaraDirective } from './shared/directives/mascara.directive';
+import { NgxMaskDirective, NgxMaskPipe, NgxMaskService, provideNgxMask } from 'ngx-mask';
+
+
 
 
 
@@ -78,7 +81,7 @@ import { MascaraDirective } from './shared/directives/mascara.directive';
     ConfirmarDialog,
     DataPipe,
     ChamadoDeleteComponent,
-    MascaraDirective
+    MascaraDirective, 
     
   ],
   imports: [
@@ -105,11 +108,10 @@ import { MascaraDirective } from './shared/directives/mascara.directive';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
     
-    
-    
-    
-    
+  
     MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 4000,
@@ -124,7 +126,7 @@ import { MascaraDirective } from './shared/directives/mascara.directive';
   ],
   
 
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider, provideNgxMask(), NgxMaskService],
   entryComponents: [ConfirmarDialog],
   bootstrap: [AppComponent]
 })
