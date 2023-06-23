@@ -22,6 +22,7 @@ export class ClienteUpdateComponent {
     cpf: "",
     email: "",
     senha: "",
+    telefone: "",
     perfis: [],
     dataCriacao: "",
   };
@@ -30,6 +31,7 @@ export class ClienteUpdateComponent {
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
+  telefone: FormControl = new FormControl(null, Validators.required);
 
   constructor(
     private service: ClienteService,

@@ -22,6 +22,7 @@ export class ClienteDeleteComponent {
     cpf: "",
     email: "",
     senha: "",
+    telefone: "",
     perfis: [],
     dataCriacao: "",
   };
