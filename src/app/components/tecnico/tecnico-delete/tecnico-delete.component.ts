@@ -22,6 +22,7 @@ export class TecnicoDeleteComponent {
     cpf: "",
     email: "",
     senha: "",
+    telefone: "",
     perfis: [],
     dataCriacao: "",
   };

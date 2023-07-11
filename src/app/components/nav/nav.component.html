@@ -7,6 +7,12 @@
             <span class="icon"><i class="material-icons">account_circle</i></span>
             <span class="text">{{ userName }}</span>
           </a>
+
+          <a mat-list-item routerLink="admin" *ngIf="isAdmin()">
+            <span class="icon"><i class="material-icons">speed</i></span>
+            <span class="text">Dashboard</span>
+         </a>
+
          <a mat-list-item routerLink="home">
             <span class="icon"><i class="material-icons">home</i></span>
             <span class="text">Home</span>
@@ -15,7 +21,7 @@
             <span class="icon"><i class="material-icons">account_circle</i></span>
             <span class="text">Técnicos</span>
          </a>
-         <a mat-list-item routerLink="clientes" *ngIf="isAdmin()">
+         <a mat-list-item routerLink="clientes">
             <span class="icon"><i class="material-icons">person</i></span>
             <span class="text">Clientes</span>
          </a>
@@ -23,7 +29,7 @@
             <span class="icon"><i class="material-icons">support</i></span>
             <span class="text">Chamados</span>
          </a>
-         <a mat-list-item href="https://github.com/ValdirCezar/helpdesk-front" target="_blank">
+         <a mat-list-item href="https://github.com/Leandro223/ordem-servico-front.git" target="_blank">
             <span class="icon"><i class="material-icons">code</i></span>
             <span class="text">Github</span>
          </a>

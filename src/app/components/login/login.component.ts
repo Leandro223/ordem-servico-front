@@ -29,13 +29,12 @@ export class LoginComponent implements OnInit{
     
   }
 
-  logar(){
+  logar() {
     this.service.authenticated(this.creds).subscribe(resposta => {
       this.service.sucessfullLogin(resposta.headers.get('Authorization').substring(7));
-      this.router.navigate(['']);
-
+      this.router.navigate([''])
     }, () => {
-      this.toast.error('Usuario e/ou senha invalidos!');
+      this.toast.error('Usuário e/ou senha inválidos');
     })
   }
 

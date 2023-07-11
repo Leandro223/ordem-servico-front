@@ -30,4 +30,8 @@ export class ClienteService {
   deletar(id: any): Observable<Cliente> {
     return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`);
   }
+
+  getClientesPorMes(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_CONFIG.baseUrl}/clientes/clientes-por-mes`);
+  }
 }

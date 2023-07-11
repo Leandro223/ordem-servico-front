@@ -6,6 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { NgxMaskService } from "ngx-mask";
 import { ToastrService } from "ngx-toastr";
 import { Cliente } from "src/app/models/cliente";
 import { ClienteService } from "src/app/services/cliente.service";
@@ -37,7 +38,8 @@ export class ClienteUpdateComponent {
     private service: ClienteService,
     private toast: ToastrService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private ngxMaskService: NgxMaskService
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +55,17 @@ export class ClienteUpdateComponent {
   }
 
   update() {
+
+    //salvar no banco com a mascara telefone
+    const valorCampoTel = this.telefone.value;
+    const valorFormatadoTel = this.ngxMaskService.applyMask(valorCampoTel, '(00) 00000-0000')
+    this.cliente.telefone = valorFormatadoTel;
+
+    //salvar no banco com a mascara cpf
+    const valorCampoCpf = this.cpf.value;
+    const valorFormatadoCpf = this.ngxMaskService.applyMask(valorCampoCpf, '000.000.000-00')
+    this.cliente.cpf = valorFormatadoCpf;
+    
     this.service.update(this.cliente).subscribe({
       next: (data) => {
         this.toast.success("Cliente Atualizado com sucesso", "Update");

@@ -19,7 +19,7 @@ export class TecnicoListComponent implements OnInit {
   jwtService: JwtHelperService = new JwtHelperService();
   ELEMENT_DATA: Tecnico[] = []
 
-  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'senha', 'acoes'];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -30,6 +30,7 @@ export class TecnicoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.findaAll();
+    
   }
 
   
@@ -52,6 +53,7 @@ export class TecnicoListComponent implements OnInit {
 
   hasAdminRole(): boolean {
     const userRoles = this.authService.getUserRole();
+    
     
     return userRoles.includes('ROLE_ADMIN');
   }

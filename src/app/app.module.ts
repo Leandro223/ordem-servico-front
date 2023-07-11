@@ -36,7 +36,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
-import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ClienteListComponent, ConfirmarDialogCliente } from './components/cliente/cliente-list/cliente-list.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './components/cliente/clienteupdate/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
@@ -49,6 +49,7 @@ import { DataPipe } from './shared/pipes/data.pipe';
 import { ChamadoDeleteComponent } from './components/chamado/chamado-delete/chamado-delete.component';
 import { MascaraDirective } from './shared/directives/mascara.directive';
 import { NgxMaskDirective, NgxMaskPipe, NgxMaskService, provideNgxMask } from 'ngx-mask';
+import { DadosComponent } from './components/admin/dados/dados.component';
 
 
 
@@ -79,9 +80,11 @@ import { NgxMaskDirective, NgxMaskPipe, NgxMaskService, provideNgxMask } from 'n
     ChamadoUpdateComponent,
     ChamadoReadComponent,
     ConfirmarDialog,
+    ConfirmarDialogCliente,
     DataPipe,
     ChamadoDeleteComponent,
-    MascaraDirective, 
+    MascaraDirective,
+    DadosComponent, 
     
   ],
   imports: [
@@ -127,7 +130,7 @@ import { NgxMaskDirective, NgxMaskPipe, NgxMaskService, provideNgxMask } from 'n
   
 
   providers: [AuthInterceptorProvider, provideNgxMask(), NgxMaskService],
-  entryComponents: [ConfirmarDialog],
+  entryComponents: [ConfirmarDialog, ConfirmarDialogCliente],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

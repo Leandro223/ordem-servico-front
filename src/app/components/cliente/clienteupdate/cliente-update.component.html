@@ -30,7 +30,8 @@
           name="cpf"
           [formControl]="cpf"
           required
-          matInput 
+          matInput
+           
           placeholder="Ex..000.000.000-00"
           mask="000.000.000-00">
           <mat-icon matSuffix>pin </mat-icon>
@@ -46,6 +47,21 @@
           matInput 
           placeholder="Ex.. fulano@mail.com">
           <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth">
+          <mat-label>Telefone</mat-label>
+          <input 
+          type="tel"
+          [(ngModel)]="cliente.telefone"
+          name="telefone"
+          [formControl]="telefone"
+          required
+          matInput 
+          placeholder="Ex.. dd + 974764937"
+          prefix="+55" 
+          mask="(00) 00000-0000">
+          <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
  
         <mat-form-field class="fullWidth">

@@ -47,6 +47,21 @@
           placeholder="Ex.. fulano@mail.com">
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
+
+        <mat-form-field class="fullWidth">
+          <mat-label>Telefone</mat-label>
+          <input 
+          type="tel"
+          [(ngModel)]="tecnico.telefone"
+          name="telefone"
+          [formControl]="telefone"
+          required
+          matInput 
+          placeholder="Ex.. dd + 974764937"
+          prefix="+55" 
+          mask="(00) 00000-0000">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
  
         <mat-form-field class="fullWidth">
           <mat-label>Senha</mat-label>

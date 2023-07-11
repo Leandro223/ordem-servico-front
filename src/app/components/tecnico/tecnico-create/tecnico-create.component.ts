@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxMaskService } from 'ngx-mask';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -21,6 +22,7 @@ export class TecnicoCreateComponent implements OnInit{
     cpf: '',
     email: '',
     senha: '',
+    telefone: '',
     perfis: [],
     dataCriacao: ''
   }
@@ -29,8 +31,9 @@ export class TecnicoCreateComponent implements OnInit{
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
+  telefone: FormControl<any> = new FormControl(null, Validators.required);
 
-  constructor(private service: TecnicoService,  private toast: ToastrService, private router: Router){}
+  constructor(private service: TecnicoService,  private toast: ToastrService, private router: Router, private ngxMaskService: NgxMaskService){}
 
 
   ngOnInit(): void {
@@ -39,6 +42,16 @@ export class TecnicoCreateComponent implements OnInit{
 
 
     create(){
+       //salvar no banco com a mascara telefone
+       const valorCampoTel = this.telefone.value;
+       const valorFormatadoTel = this.ngxMaskService.applyMask(valorCampoTel, '(00) 00000-0000')
+       this.tecnico.telefone = valorFormatadoTel;
+ 
+       //salvar no banco com a mascara cpf
+       const valorCampoCpf = this.cpf.value;
+       const valorFormatadoCpf = this.ngxMaskService.applyMask(valorCampoCpf, '000.000.000-00')
+       this.tecnico.cpf = valorFormatadoCpf;
+
       this.service.create(this.tecnico)
         .subscribe({
           next: (data) => {
@@ -46,11 +59,13 @@ export class TecnicoCreateComponent implements OnInit{
             this.router.navigate(['tecnicos']);
           },
           error: (ex) => {
-            if(ex.error.errors){
-              ex.error.errors.forEach(element => {
+            if (ex.status === 403) {
+              this.toast.error("Apenas o administrador está autorizado a criar um tecnico.");
+            } else if (ex.error.errors) {
+              ex.error.errors.forEach((element) => {
                 this.toast.error(element.message);
               });
-            }else {
+            } else {
               this.toast.error(ex.error.message);
             }
           },
@@ -59,7 +74,7 @@ export class TecnicoCreateComponent implements OnInit{
 
   validaCampos(): boolean {
     return this.nome.valid && this.cpf.valid
-     && this.email.valid && this.senha.valid
+     && this.email.valid && this.senha.valid && this.telefone.valid
   }
 
   addPerfil(perfil: any): void {
