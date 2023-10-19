@@ -1,27 +1,16 @@
-# Helpdesk
+![adm1](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/82c5ff02-b4de-4ca9-9ddc-9871fd67521b)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+![admin2](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/53436a42-249e-4457-ad4a-e8e418ac035b)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+![admin3_1](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/77cb0b66-6fb2-479f-8e23-2c92eb0631ee)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![tecnico1](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/90558b99-b7d3-46da-9174-1a71dde74e36)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![tecnico2](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/de54aa6b-3fb7-44eb-8f7e-51b3217e3d6c)
