@@ -1,4 +1,4 @@
-# Frontend para o Controle de Ordem de Serviço
+# Front end Angular para o Controle de Ordem de Serviço
 
 ![adm1](https://github.com/Leandro223/api-controle-ponto-inteligente/assets/29740781/82c5ff02-b4de-4ca9-9ddc-9871fd67521b)
 
